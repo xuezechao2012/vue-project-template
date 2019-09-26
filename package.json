@@ -1,6 +1,7 @@
 {
   "name": "vue-project-template",
   "version": "0.1.0",
+  "author": "wuyiya",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",

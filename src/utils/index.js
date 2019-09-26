@@ -7,21 +7,19 @@
  */
 export function openWindow(url, title, w, h) {
   // Fixes dual-screen position                            Most browsers       Firefox
-  const dualScreenLeft =
-    window.screenLeft !== undefined ? window.screenLeft : screen.left
-  const dualScreenTop =
-    window.screenTop !== undefined ? window.screenTop : screen.top
+  const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left
+  const dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top
 
   const width = window.innerWidth
     ? window.innerWidth
     : document.documentElement.clientWidth
-      ? document.documentElement.clientWidth
-      : screen.width
+    ? document.documentElement.clientWidth
+    : screen.width
   const height = window.innerHeight
     ? window.innerHeight
     : document.documentElement.clientHeight
-      ? document.documentElement.clientHeight
-      : screen.height
+    ? document.documentElement.clientHeight
+    : screen.height
 
   const left = width / 2 - w / 2 + dualScreenLeft
   const top = height / 2 - h / 2 + dualScreenTop
@@ -118,17 +116,7 @@ export function formatTime(time, option) {
   if (option) {
     return parseTime(time, option)
   } else {
-    return (
-      d.getMonth() +
-      1 +
-      '月' +
-      d.getDate() +
-      '日' +
-      d.getHours() +
-      '时' +
-      d.getMinutes() +
-      '分'
-    )
+    return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
   }
 }
 
@@ -262,9 +250,7 @@ export function toggleClass(element, className) {
   if (nameIndex === -1) {
     classString += '' + className
   } else {
-    classString =
-      classString.substr(0, nameIndex) +
-      classString.substr(nameIndex + className.length)
+    classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length)
   }
   element.className = classString
 }
