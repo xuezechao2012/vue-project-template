@@ -5,16 +5,17 @@ Vue.use(Router)
 
 /* Router Modules */
 import aboutRouter from './modules/about'
-
+import homeRouter from './modules/home'
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
+      redirect: '/home',
       component: () => import('@/views/Home')
     },
+    homeRouter,
     aboutRouter
   ]
 })
