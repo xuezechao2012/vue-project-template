@@ -9,3 +9,5 @@
 * axios 请求封装
 * vue cli3 构建
 * esint + prettier 代码校验
+* 根据环境打包生成不同目录
+
