@@ -22,7 +22,7 @@ export default {
         path: 'about'
       })
     },
-     goList() {
+    goList() {
       this.$router.push({
         path: 'list'
       })
