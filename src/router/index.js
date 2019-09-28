@@ -6,6 +6,8 @@ Vue.use(Router)
 /* Router Modules */
 import aboutRouter from './modules/about'
 import homeRouter from './modules/home'
+import listRouter from './modules/list'
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -16,6 +18,7 @@ export default new Router({
       component: () => import('@/views/Home')
     },
     homeRouter,
-    aboutRouter
+    aboutRouter,
+    listRouter
   ]
 })

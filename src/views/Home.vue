@@ -4,7 +4,8 @@
     <h1>hello vue.js</h1>
     <hr />
     <HelloWorld msg="This is hello World component" />
-    <el-button @click="goAbout">默认按钮</el-button>
+    <el-button @click="goAbout">go About Page</el-button>
+    <el-button @click="goList">go List Page</el-button>
   </div>
 </template>
 
@@ -19,6 +20,11 @@ export default {
     goAbout() {
       this.$router.push({
         path: 'about'
+      })
+    },
+     goList() {
+      this.$router.push({
+        path: 'list'
       })
     }
   }
