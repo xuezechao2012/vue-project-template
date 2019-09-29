@@ -11,3 +11,52 @@
 * esint + prettier 代码校验
 * 根据环境打包生成不同目录
 
+## 目录结构
+```
+├─babel.config.js 
+├─package-lock.json 
+├─package.json 
+├─postcss.config.js 
+├─public 
+│ ├─favicon.ico 
+│ └─index.html 
+├─README.md 
+├─src 
+│ ├─api 
+│ │ └─api-test.js 
+│ ├─App.vue 
+│ ├─assets 
+│ │ └─logo.png 
+│ ├─components 
+│ │ └─HelloWorld.vue 
+│ ├─main.js 
+│ ├─router 
+│ │ ├─index.js 
+│ │ └─modules 
+│ │   ├─about.js 
+│ │   ├─home.js 
+│ │   └─list.js 
+│ ├─store 
+│ │ ├─getters.js 
+│ │ ├─index.js 
+│ │ └─modules 
+│ │   └─app.js 
+│ ├─styles 
+│ │ ├─btn.scss 
+│ │ ├─element-ui.scss 
+│ │ ├─element-variables.scss 
+│ │ ├─index.scss 
+│ │ ├─mixin.scss 
+│ │ ├─reset.css 
+│ │ ├─transition.scss 
+│ │ └─variables.scss 
+│ ├─utils 
+│ │ ├─auth.js 
+│ │ ├─index.js 
+│ │ └─request.js 
+│ └─views 
+│   ├─About.vue 
+│   ├─Home.vue 
+│   └─List.vue 
+└─vue.config.js 
+```
