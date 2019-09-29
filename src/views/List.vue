@@ -27,7 +27,7 @@ export default {
   methods: {
     getData() {
       getList().then(res => {
-        if (res.result && res.result[0] && res.result[0].content) {
+        if (this._.get(res, 'result[0].content')) {
           this.list = res.result[0].content
         }
       })
