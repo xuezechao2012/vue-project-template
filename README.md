@@ -72,9 +72,9 @@
 
 ## 使用方法
 ```
-npm i // 安装依赖
-npm run dev // 运行项目
-npm run build-test // 构建测试包 
-npm run build-prod // 构建正式包 
-npm run report // 项目打包分析 
+npm i               // 安装依赖
+npm run dev         // 运行项目
+npm run build-test  // 构建测试包 
+npm run build-prod  // 构建正式包 
+npm run report      // 项目打包分析 
 ```
