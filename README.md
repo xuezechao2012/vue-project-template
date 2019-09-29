@@ -13,10 +13,19 @@
 
 ## 目录结构
 ```
-├─babel.config.js 
+├─.browserslistrc --------------- // 浏览器兼容性
+├─.env.development -------------- // 开发环境的环境变量
+├─.env.production --------------- // 生产环境的环境变量
+├─.env.test --------------------- // 测试环境的环境
+├─.eslintignore ----------------- // eslint忽略文件
+├─.eslintrc.js ------------------ // eslint配置
+├─.gitignore -------------------- // git提交忽略文件
+├─.prettierignore --------------- // prettier忽略文件
+├─.prettierrc.js ---------------- // prettier配置
+├─babel.config.js --------------- // babel配置
 ├─package-lock.json 
 ├─package.json 
-├─postcss.config.js 
+├─postcss.config.js ------------- // postcss配置
 ├─public 
 │ ├─favicon.ico 
 │ └─index.html 
@@ -30,18 +39,18 @@
 │ ├─components 
 │ │ └─HelloWorld.vue 
 │ ├─main.js 
-│ ├─router 
+│ ├─router ---------------------- // 路由
 │ │ ├─index.js 
 │ │ └─modules 
 │ │   ├─about.js 
 │ │   ├─home.js 
 │ │   └─list.js 
-│ ├─store 
+│ ├─store ----------------------- // vuex数据
 │ │ ├─getters.js 
 │ │ ├─index.js 
 │ │ └─modules 
 │ │   └─app.js 
-│ ├─styles 
+│ ├─styles ---------------------- // 全局样式
 │ │ ├─btn.scss 
 │ │ ├─element-ui.scss 
 │ │ ├─element-variables.scss 
@@ -50,13 +59,13 @@
 │ │ ├─reset.css 
 │ │ ├─transition.scss 
 │ │ └─variables.scss 
-│ ├─utils 
+│ ├─utils ----------------------- // 全局工具
 │ │ ├─auth.js 
 │ │ ├─index.js 
 │ │ └─request.js 
-│ └─views 
+│ └─views ----------------------- // 页面
 │   ├─About.vue 
 │   ├─Home.vue 
 │   └─List.vue 
-└─vue.config.js 
+└─vue.config.js ----------------- // vue及webpack配置
 ```
