@@ -10,6 +10,7 @@
 * vue cli3 构建
 * esint + prettier 代码校验
 * 根据环境打包生成不同目录
+* 代码压缩
 
 ## 目录结构
 ```
@@ -25,6 +26,7 @@
 ├─babel.config.js --------------- // babel配置
 ├─package-lock.json 
 ├─package.json 
+├─jsconfig.json ----------------- // vscode 组件路径配置 
 ├─postcss.config.js ------------- // postcss配置
 ├─public 
 │ ├─favicon.ico 
