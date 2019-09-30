@@ -17,6 +17,8 @@
 
 <script>
 import { getList } from '@/api/api-test'
+import _get from 'lodash/get'
+
 export default {
   name: 'List',
   data() {
@@ -27,7 +29,7 @@ export default {
   methods: {
     getData() {
       getList().then(res => {
-        if (this._.get(res, 'result[0].content')) {
+        if (_get(res, 'result[0].content')) {
           this.list = res.result[0].content
         }
       })

@@ -9,7 +9,7 @@ import homeRouter from './modules/home'
 import listRouter from './modules/list'
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
     {

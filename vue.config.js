@@ -1,9 +1,11 @@
 'use strict'
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+
 const isProduction = process.env.NODE_ENV === 'production'
 module.exports = {
   // 打包输出文件夹名字
-  publicPath: '/',
+  publicPath: './',
   outputDir: process.env.VUE_APP_OUTPUTDIR, // 根据环境去打包
   // 生产环境的 source map，加速生产环境构建
   productionSourceMap: false,
@@ -18,6 +20,14 @@ module.exports = {
       config.optimization.splitChunks({
         chunks: 'all'
       })
+      // lodash
+      // config.module
+      //   .rule('js')
+      //   .use('babel-loader')
+      //   .options({
+      //     presets: ['@babel/preset-env'],
+      //     plugins: ['lodash']
+      //   })
     }
   },
   configureWebpack: config => {
@@ -35,7 +45,8 @@ module.exports = {
           },
           sourceMap: false,
           parallel: true //开启并行压缩，充分利用cpu
-        })
+        }),
+        new LodashModuleReplacementPlugin()
       )
     }
   }

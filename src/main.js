@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import _ from 'lodash' // lodash
 
 import 'element-ui/lib/theme-chalk/index.css'
 // ElementUI 按需引入
@@ -14,9 +13,6 @@ Vue.use(Button)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Image)
-
-// 使用 lodash
-Vue.prototype._ = _
 
 // 按需使用 ElementUI 按需使用
 Vue.use(Loading.directive)
