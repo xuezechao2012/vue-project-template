@@ -1,8 +1,11 @@
 'use strict'
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-
+const path = require('path')
 const isProduction = process.env.NODE_ENV === 'production'
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
   // 打包输出文件夹名字
   publicPath: './',
@@ -11,43 +14,32 @@ module.exports = {
   productionSourceMap: false,
   chainWebpack: config => {
     if (isProduction) {
-      // 删除预加载
-      config.plugins.delete('preload')
-      config.plugins.delete('prefetch')
       // 压缩代码
       config.optimization.minimize(true)
-      // 分割代码
       config.optimization.splitChunks({
-        chunks: 'all'
-      })
-      // lodash
-      // config.module
-      //   .rule('js')
-      //   .use('babel-loader')
-      //   .options({
-      //     presets: ['@babel/preset-env'],
-      //     plugins: ['lodash']
-      //   })
-    }
-  },
-  configureWebpack: config => {
-    // 为生产环境修改配置...
-    if (isProduction) {
-      config.plugins.push(
-        //生产环境压缩J S
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            warnings: false, // 在UglifyJs删除没有用到的代码时不输出警告
-            compress: {
-              drop_debugger: true, // 删除所有的 `debugger` 语句
-              drop_console: true // 删除所有的 `console` 语句
-            }
+        chunks: 'all',
+        cacheGroups: {
+          libs: {
+            name: 'chunk-libs',
+            test: /[\\/]node_modules[\\/]/,
+            priority: 10,
+            chunks: 'initial' // only package third parties that are initially dependent
           },
-          sourceMap: false,
-          parallel: true //开启并行压缩，充分利用cpu
-        }),
-        new LodashModuleReplacementPlugin()
-      )
+          elementUI: {
+            name: 'chunk-elementUI', // split elementUI into a single package
+            priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+            test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+          },
+          commons: {
+            name: 'chunk-commons',
+            test: resolve('src/components'), // can customize your rules
+            minChunks: 3, //  minimum common number
+            priority: 5,
+            reuseExistingChunk: true
+          }
+        }
+      })
+      config.optimization.runtimeChunk('single')
     }
   }
 }

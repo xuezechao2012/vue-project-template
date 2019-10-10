@@ -4,11 +4,11 @@
     <el-button @click="getData" :disabled="list.length > 0">获取List</el-button>
     <el-button @click="resetData" :disabled="list.length == 0">重置List</el-button>
     <el-table :data="list" stripe class="table">
-      <el-table-column label="专辑名" prop="album_title"></el-table-column>
-      <el-table-column label="歌手" prop="author"></el-table-column>
-      <el-table-column label="图片" prop="author">
+      <el-table-column label="作者信息" prop="hint"></el-table-column>
+      <el-table-column label="标题" prop="title" width="500"></el-table-column>
+      <el-table-column label="图片">
         <template slot-scope="scope">
-          <el-image :src="scope.row.pic_small"></el-image>
+          <img :src="scope.row.image" />
         </template>
       </el-table-column>
     </el-table>
@@ -17,8 +17,8 @@
 
 <script>
 import { getList } from '@/api/api-test'
-import _get from 'lodash/get'
-
+// import _get from 'lodash/get'
+import { get } from 'lodash-es'
 export default {
   name: 'List',
   data() {
@@ -27,10 +27,11 @@ export default {
     }
   },
   methods: {
+    // 获取知乎日报数据
     getData() {
       getList().then(res => {
-        if (_get(res, 'result[0].content')) {
-          this.list = res.result[0].content
+        if (get(res, 'data.top_stories')) {
+          this.list = res.data.top_stories
         }
       })
     },
@@ -45,8 +46,12 @@ export default {
   text-align: center;
   margin-top: 50px;
   .table {
-    width: 500px;
+    width: 800px;
     margin: 30px auto;
+    img {
+      width: 100px;
+      height: 100px;
+    }
   }
 }
 </style>
