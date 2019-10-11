@@ -1,6 +1,8 @@
 'use strict'
 const path = require('path')
+const webpack = require('webpack')
 const isProduction = process.env.NODE_ENV === 'production'
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -14,8 +16,21 @@ module.exports = {
   productionSourceMap: false,
   chainWebpack: config => {
     if (isProduction) {
+      // lodash
+      config.module
+        .rule('js')
+        .test(/\.js$/)
+        .exclude.add('/node_modules/')
+        .end()
+        .use('babel-loader')
+        .options({
+          plugins: ['lodash'],
+          presets: [['@babel/preset-env', { modules: false, targets: { node: 4 } }]]
+        })
+        .end()
       // 压缩代码
       config.optimization.minimize(true)
+      config.optimization.runtimeChunk('single')
       config.optimization.splitChunks({
         chunks: 'all',
         cacheGroups: {
@@ -39,7 +54,15 @@ module.exports = {
           }
         }
       })
-      config.optimization.runtimeChunk('single')
+    }
+  },
+  configureWebpack: config => {
+    // 为生产环境修改配置...
+    if (isProduction) {
+      config.plugins.push(
+        //生产环境压缩 JS
+        new LodashModuleReplacementPlugin()
+      )
     }
   }
 }

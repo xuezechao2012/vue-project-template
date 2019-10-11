@@ -17,8 +17,7 @@
 
 <script>
 import { getList } from '@/api/api-test'
-// import _get from 'lodash/get'
-import { get } from 'lodash-es'
+import _ from 'lodash'
 export default {
   name: 'List',
   data() {
@@ -30,7 +29,7 @@ export default {
     // 获取知乎日报数据
     getData() {
       getList().then(res => {
-        if (get(res, 'data.top_stories')) {
+        if (_.get(res, 'data.top_stories')) {
           this.list = res.data.top_stories
         }
       })
