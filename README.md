@@ -24,7 +24,6 @@
 ├─.prettierignore --------------- // prettier忽略文件
 ├─.prettierrc.js ---------------- // prettier配置
 ├─babel.config.js --------------- // babel配置
-├─package-lock.json 
 ├─package.json 
 ├─jsconfig.json ----------------- // vscode 组件路径配置 
 ├─postcss.config.js ------------- // postcss配置
