@@ -3,16 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import 'element-ui/lib/theme-chalk/index.css'
 // ElementUI 按需引入
-import { Form, Button, Table, TableColumn, Loading, Message, Image } from 'element-ui'
+import { Form, Button, Table, TableColumn, Loading, Message } from 'element-ui'
 
 // ElementUI 按需使用
 Vue.use(Form)
 Vue.use(Button)
 Vue.use(Table)
 Vue.use(TableColumn)
-Vue.use(Image)
 
 // 按需使用 ElementUI 按需使用
 Vue.use(Loading.directive)

@@ -18,6 +18,7 @@
 <script>
 import { getList } from '@/api/api-test'
 import _ from 'lodash'
+
 export default {
   name: 'List',
   data() {
