@@ -53,13 +53,13 @@ export default {
 <style lang="scss" scoped>
 .list {
   text-align: center;
-  width: 800px;
+  width: $baseWidth;
   margin: 50px auto 0;
   h1 {
     margin-bottom: 20px;
   }
   .table {
-    width: 800px;
+    width: 100%;
     margin: 30px auto;
     img {
       width: 100px;

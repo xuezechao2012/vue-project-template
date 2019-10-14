@@ -35,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   text-align: center;
-  width: 800px;
+  width: $baseWidth;
   margin: 0 auto;
   padding-top: 50px;
   hr {

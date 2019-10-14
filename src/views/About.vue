@@ -17,7 +17,7 @@ export default {
 </script>
 <style lang="scss">
 .about {
-  width: 800px;
+  width: $baseWidth;
   margin: 20px auto 0;
 }
 </style>
