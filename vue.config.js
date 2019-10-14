@@ -14,6 +14,18 @@ module.exports = {
   outputDir: process.env.VUE_APP_OUTPUTDIR, // 根据环境去打包
   // 生产环境的 source map，加速生产环境构建
   productionSourceMap: false,
+  // sass全局样式和变量
+  css: {
+    modules: false,
+    extract: isProduction,
+    sourceMap: false,
+    loaderOptions: {
+      sass: {
+        // 向全局sass样式传入共享的全局变量
+        prependData: `@import "@/styles/index.scss";`
+      }
+    }
+  },
   chainWebpack: config => {
     // lodash打包优化
     config.module

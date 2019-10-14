@@ -18,6 +18,7 @@ Vue.use(Loading.directive)
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$message = Message
 
+//关闭生产模式下给出的提示
 Vue.config.productionTip = false
 
 new Vue({

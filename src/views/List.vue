@@ -29,9 +29,13 @@ export default {
   methods: {
     // 获取知乎日报数据
     getData() {
+      let listLoading = this.$loading({
+        target: '.list'
+      })
       getList().then(res => {
         if (_.get(res, 'data.top_stories')) {
           this.list = res.data.top_stories
+          listLoading.close()
         }
       })
     },
@@ -44,7 +48,11 @@ export default {
 <style lang="scss" scoped>
 .list {
   text-align: center;
-  margin-top: 50px;
+  width: 800px;
+  margin: 50px auto 0;
+  h1 {
+    margin-bottom: 20px;
+  }
   .table {
     width: 800px;
     margin: 30px auto;
