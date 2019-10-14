@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <goBack />
     <h1>This is an list page</h1>
     <el-button @click="getData" :disabled="list.length > 0">获取List</el-button>
     <el-button @click="resetData" :disabled="list.length == 0">重置List</el-button>
@@ -17,10 +18,14 @@
 
 <script>
 import { getList } from '@/api/api-test'
+import goBack from '@/components/goBack.vue'
 import _ from 'lodash'
 
 export default {
   name: 'List',
+  components: {
+    goBack
+  },
   data() {
     return {
       list: []
