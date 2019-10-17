@@ -4,6 +4,8 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin') // gzip�
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i // gzip匹配文件规则
 const isProduction = process.env.NODE_ENV === 'production'
 
+const globalConfig = require('./src/config/index.js') //全局配置
+
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -67,6 +69,7 @@ module.exports = {
     })
   },
   configureWebpack: config => {
+    config.name = globalConfig.baseTitle //用于设置public/index.html的默认title
     const plugins = []
     if (isProduction) {
       plugins.push(

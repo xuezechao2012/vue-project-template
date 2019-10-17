@@ -3,6 +3,7 @@
 ## 内置功能
 * vuex 
 * vue-router 路由模块化配置
+* 动态设置title
 * sass 模块化样式
 * lodash 打包优化
 * element-ui 按需加载
@@ -34,10 +35,10 @@
 ├─README.md 
 ├─src 
 │ ├─api 
-│ │ └─api-test.js 
-│ ├─App.vue 
-│ ├─assets 
-│ │ └─logo.png 
+│ │ └─api-test.js --------------- // 各个模块api配置
+│ ├─App.vue
+│ ├─assets ---------------------- // 静态资源
+│ │ └─img
 │ ├─components 
 │ │ └─HelloWorld.vue 
 │ ├─main.js 
@@ -52,6 +53,8 @@
 │ │ ├─index.js 
 │ │ └─modules 
 │ │   └─app.js 
+│ ├─directive ------------------- // 自定义指令
+│ │ └─waves 
 │ ├─styles ---------------------- // 全局样式
 │ │ ├─btn.scss 
 │ │ ├─element-ui.scss 

@@ -6,13 +6,17 @@
       <li class="green">绿色</li>
       <li class="blue">蓝色</li>
       <li class="orange">橙色</li>
+      <li class="green waves" v-waves>水波纹测试</li>
     </ul>
   </div>
 </template>
 
 <script>
+import waves from '@/directive/waves/index.js' // 水波纹指令
+
 export default {
   name: 'HelloWorld',
+  directives: { waves },
   props: {
     msg: String
   }
@@ -49,6 +53,10 @@ export default {
       }
       &.orange {
         background: $orange;
+      }
+      &.waves {
+        cursor: pointer;
+        user-select: none;
       }
     }
   }
